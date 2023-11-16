@@ -10,7 +10,7 @@ jobs:
     env:
       LABPASSPHRASE: ${{ secrets.LABPASSPHRASE }}
     timeout-minutes: 15
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Hi
         run: echo "Hello World!"
@@ -20,6 +20,8 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
 
       - name: Install Python requirements
         run: pip3 install -r requirements.txt
